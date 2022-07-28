@@ -1,0 +1,7 @@
+D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\Definitions.InitialShootThemUp.h
+D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public\STUGameModeBase.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Inc\InitialShootThemUp\STUGameModeBase.generated.h

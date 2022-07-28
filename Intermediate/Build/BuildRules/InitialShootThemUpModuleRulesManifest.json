@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\UE_Tutor_Cpp\\InitialShootThemUp\\InitialShootThemUp\\Source\\InitialShootThemUp\\InitialShootThemUp.Build.cs",
+		"D:\\UE_Tutor_Cpp\\InitialShootThemUp\\InitialShootThemUp\\Source\\InitialShootThemUp.Target.cs",
+		"D:\\UE_Tutor_Cpp\\InitialShootThemUp\\InitialShootThemUp\\Source\\InitialShootThemUpEditor.Target.cs"
+	],
+	"EngineVersion": "4.27.2"
+}

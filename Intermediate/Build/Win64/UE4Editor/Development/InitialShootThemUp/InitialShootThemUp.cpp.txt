@@ -1,0 +1,2 @@
+D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\Definitions.InitialShootThemUp.h
+D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\InitialShootThemUp.h

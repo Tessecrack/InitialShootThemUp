@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "InitialShootThemUp",
+			"Path": "D:\\UE_Tutor_Cpp\\InitialShootThemUp\\InitialShootThemUp\\Source\\InitialShootThemUp.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "InitialShootThemUpEditor",
+			"Path": "D:\\UE_Tutor_Cpp\\InitialShootThemUp\\InitialShootThemUp\\Source\\InitialShootThemUpEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\InitialShootThemUp.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{63F635DC-C801-41D7-8F10-68330CDB0DB4}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\InitialShootThemUp.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\InitialShootThemUpEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{3102D9B6-B371-42EE-86FE-3FD5AE10C473}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\InitialShootThemUp">
+      <UniqueIdentifier>{126F58FE-D03B-44F6-AE7C-83397D9312C9}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\InitialShootThemUp\InitialShootThemUp.Build.cs">
+      <Filter>Source\InitialShootThemUp</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\InitialShootThemUp\InitialShootThemUp.cpp">
+      <Filter>Source\InitialShootThemUp</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\InitialShootThemUp\InitialShootThemUp.h">
+      <Filter>Source\InitialShootThemUp</Filter>
+    </ClInclude>
+    <Filter Include="Source\InitialShootThemUp\Private">
+      <UniqueIdentifier>{D971C331-3700-4975-99FD-B424BB9E22CA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\InitialShootThemUp\Private\STUGameModeBase.cpp">
+      <Filter>Source\InitialShootThemUp\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\InitialShootThemUp\Public">
+      <UniqueIdentifier>{3B155971-6B14-43EC-B55A-640A48925C7E}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\InitialShootThemUp\Public\STUGameModeBase.h">
+      <Filter>Source\InitialShootThemUp\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

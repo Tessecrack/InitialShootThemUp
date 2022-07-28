@@ -1,0 +1,3 @@
+D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\Definitions.InitialShootThemUp.h
+D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
