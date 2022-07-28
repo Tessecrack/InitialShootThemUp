@@ -13,5 +13,8 @@ UCLASS()
 class INITIALSHOOTTHEMUP_API ASTUGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+public:
+	virtual void BeginPlay() override;
 	
 };

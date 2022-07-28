@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\InitialShootThemUp.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{63F635DC-C801-41D7-8F10-68330CDB0DB4}</UniqueIdentifier>
+      <UniqueIdentifier>{A0AFD0CA-74DF-4672-BDDF-D3758BDAD9D3}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\InitialShootThemUp.Target.cs">
       <Filter>Source</Filter>
@@ -11,8 +11,11 @@
     <None Include="..\..\Source\InitialShootThemUpEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.clang-format" />
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{3102D9B6-B371-42EE-86FE-3FD5AE10C473}</UniqueIdentifier>
+      <UniqueIdentifier>{25C28AF8-A559-4343-9A66-A92ADEC230FF}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -24,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\InitialShootThemUp">
-      <UniqueIdentifier>{126F58FE-D03B-44F6-AE7C-83397D9312C9}</UniqueIdentifier>
+      <UniqueIdentifier>{5F3AD020-1338-4A56-BC56-F642DFED36C5}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\InitialShootThemUp\InitialShootThemUp.Build.cs">
       <Filter>Source\InitialShootThemUp</Filter>
@@ -36,13 +39,13 @@
       <Filter>Source\InitialShootThemUp</Filter>
     </ClInclude>
     <Filter Include="Source\InitialShootThemUp\Private">
-      <UniqueIdentifier>{D971C331-3700-4975-99FD-B424BB9E22CA}</UniqueIdentifier>
+      <UniqueIdentifier>{CD51567F-4C71-4CC1-A156-D594A3031F3B}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InitialShootThemUp\Private\STUGameModeBase.cpp">
       <Filter>Source\InitialShootThemUp\Private</Filter>
     </ClCompile>
     <Filter Include="Source\InitialShootThemUp\Public">
-      <UniqueIdentifier>{3B155971-6B14-43EC-B55A-640A48925C7E}</UniqueIdentifier>
+      <UniqueIdentifier>{0DFA039C-638F-455B-99E7-BA017050C078}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\InitialShootThemUp\Public\STUGameModeBase.h">
       <Filter>Source\InitialShootThemUp\Public</Filter>

@@ -276,6 +276,9 @@
     <None Include="..\..\InitialShootThemUp.uproject"/>
     <None Include="..\..\Source\InitialShootThemUp.Target.cs"/>
     <None Include="..\..\Source\InitialShootThemUpEditor.Target.cs"/>
+    <None Include="..\..\.clang-format"/>
+    <None Include="..\..\.gitattributes"/>
+    <None Include="..\..\.gitignore"/>
     <None Include="..\..\Config\DefaultEditor.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>
     <None Include="..\..\Config\DefaultGame.ini"/>
