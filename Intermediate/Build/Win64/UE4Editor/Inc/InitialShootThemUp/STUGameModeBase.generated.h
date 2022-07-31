@@ -36,7 +36,7 @@ public: \
 
 #define InitialShootThemUp_Source_InitialShootThemUp_Public_STUGameModeBase_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ASTUGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API ASTUGameModeBase(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASTUGameModeBase) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ASTUGameModeBase); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASTUGameModeBase); \
@@ -48,8 +48,6 @@ public:
 
 
 #define InitialShootThemUp_Source_InitialShootThemUp_Public_STUGameModeBase_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ASTUGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ASTUGameModeBase(ASTUGameModeBase&&); \
@@ -57,7 +55,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ASTUGameModeBase); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASTUGameModeBase); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASTUGameModeBase)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ASTUGameModeBase)
 
 
 #define InitialShootThemUp_Source_InitialShootThemUp_Public_STUGameModeBase_h_15_PRIVATE_PROPERTY_OFFSET

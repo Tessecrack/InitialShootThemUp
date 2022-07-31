@@ -7,9 +7,13 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\InitialShootThemUpEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\STUBaseCharacter.cpp.obj"
+"D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\STUPlayerController.cpp.obj"
 "D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\STUGameModeBase.cpp.obj"
 "D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\InitialShootThemUp.cpp.obj"
 "D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\InitialShootThemUp.init.gen.cpp.obj"
+"D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\STUBaseCharacter.gen.cpp.obj"
 "D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\STUGameModeBase.gen.cpp.obj"
+"D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\STUPlayerController.gen.cpp.obj"
 "D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\Default.rc2.res"
 /OUT:"D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Development\InitialShootThemUp\UE4Editor-InitialShootThemUp.lib"

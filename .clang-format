@@ -2,8 +2,3 @@ Language: Cpp
 BasedOnStyle: Microsoft
 IndentWidth: '4'
 UseTab: Never
-BreakBeforeBraces: Allman
-ColumnLimit: '140'
-AccesModifierOffset: '-4'
-SortIncludes: false
-AllowShortBlocksOnASingleLine: false
