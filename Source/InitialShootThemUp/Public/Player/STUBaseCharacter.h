@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "STUBaseCharacter.generated.h"
 
+class USpringArmComponent;
 class UCameraComponent;
 
 UCLASS()
@@ -25,15 +26,18 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
 	UCameraComponent* CameraComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+    USpringArmComponent *SpringArmComponent;
+
+    void MoveForward(float AxisValue);
+    void MoveRight(float AxisValue);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-	void MoveForward(float AxisValue);
-	void MoveRight(float AxisValue);
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float MovementSpeed = 100.0f;

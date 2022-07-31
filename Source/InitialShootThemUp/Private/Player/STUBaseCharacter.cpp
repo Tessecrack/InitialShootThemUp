@@ -3,6 +3,7 @@
 
 #include "Player/STUBaseCharacter.h"
 #include "Camera/CameraComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 
 // Sets default values
 ASTUBaseCharacter::ASTUBaseCharacter()
@@ -11,8 +12,14 @@ ASTUBaseCharacter::ASTUBaseCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
-    CameraComponent->SetupAttachment(GetRootComponent());
-	
+    SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
+
+    SpringArmComponent->SetupAttachment(GetRootComponent());
+    SpringArmComponent->bUsePawnControlRotation = true;
+    SpringArmComponent->SocketOffset.Z = 90;
+
+    CameraComponent->SetupAttachment(SpringArmComponent);
+    CameraComponent->bUsePawnControlRotation = false;
 }
 
 // Called when the game starts or when spawned
@@ -26,8 +33,6 @@ void ASTUBaseCharacter::BeginPlay()
 void ASTUBaseCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-    FVector OffsetLocation = ConsumeMovementInputVector() * DeltaTime;
-	AddActorLocalOffset(OffsetLocation);
 }
 
 // Called to bind functionality to input
@@ -36,14 +41,17 @@ void ASTUBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	PlayerInputComponent->BindAxis("MoveForward", this, &ASTUBaseCharacter::MoveForward);
     PlayerInputComponent->BindAxis("MoveRight", this, &ASTUBaseCharacter::MoveRight);
+
+	PlayerInputComponent->BindAxis("LookHorizontal", this, &ASTUBaseCharacter::AddControllerYawInput);
+    PlayerInputComponent->BindAxis("LookVertical", this, &ASTUBaseCharacter::AddControllerPitchInput);
 }
 
 void ASTUBaseCharacter::MoveForward(float AxisValue)
 {
-    AddMovementInput(FVector::ForwardVector, AxisValue * MovementSpeed);
+    AddMovementInput(GetActorForwardVector(), AxisValue * MovementSpeed * GetWorld() -> DeltaTimeSeconds);
 }
 
 void ASTUBaseCharacter::MoveRight(float AxisValue)
 {
-    AddMovementInput(FVector::RightVector, AxisValue * MovementSpeed);
+    AddMovementInput(GetActorRightVector(), AxisValue * MovementSpeed * GetWorld() -> DeltaTimeSeconds);
 }
