@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/STUCharacterMovementComponent.h"
 #include "STUBaseCharacter.generated.h"
+
 
 class USpringArmComponent;
 class UCameraComponent;
@@ -16,7 +18,7 @@ class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
 
   public:
     // Sets default values for this character's properties
-    ASTUBaseCharacter();
+    ASTUBaseCharacter(const FObjectInitializer& ObjInit);
 
   protected:
     // Called when the game starts or when spawned
@@ -31,6 +33,9 @@ class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
     void MoveForward(float AxisValue);
     void MoveRight(float AxisValue);
 
+    void OnStartRunning();
+    void OnStopRunning();
+
   public:
     // Called every frame
     virtual void Tick(float DeltaTime) override;
@@ -38,6 +43,20 @@ class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
     // Called to bind functionality to input
     virtual void SetupPlayerInputComponent(class UInputComponent *PlayerInputComponent) override;
 
+    UFUNCTION(BlueprintCallable, Category = "Movement")
+    float GetDirection() const;
+
+    UFUNCTION(BlueprintCallable, Category = "Movement")
+    bool IsRunning() const;
+
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
     float MovementSpeed = 100.0f;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+    bool IsAccelerateRunning = false;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+    bool IsMovingForward;
+
+
 };

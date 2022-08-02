@@ -235,6 +235,7 @@
 /I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Inc\InitialShootThemUp
 /I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source
 /I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public\Player
+/I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public\Components
 /I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
