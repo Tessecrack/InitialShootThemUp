@@ -54,12 +54,12 @@ void ASTUBaseCharacter::SetupPlayerInputComponent(UInputComponent *PlayerInputCo
 void ASTUBaseCharacter::MoveForward(float AxisValue)
 {
     IsMovingForward = AxisValue > 0.0f;
-    AddMovementInput(GetActorForwardVector(), AxisValue * MovementSpeed * GetWorld()->DeltaTimeSeconds);
+    AddMovementInput(GetActorForwardVector(), AxisValue * MovementSpeed);
 }
 
 void ASTUBaseCharacter::MoveRight(float AxisValue)
 {
-    AddMovementInput(GetActorRightVector(), AxisValue * MovementSpeed * GetWorld()->DeltaTimeSeconds);
+    AddMovementInput(GetActorRightVector(), AxisValue * MovementSpeed);
 }
 
 void ASTUBaseCharacter::OnStartRunning()
