@@ -13,16 +13,27 @@ class INITIALSHOOTTHEMUP_API USTUHealthComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:	
-	// Sets default values for this component's properties
 	USTUHealthComponent();
+	float GetHealth() const
+	{
+		return Health;
+	};
+	
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health", meta = (ClampMin = 0.0f, ClampMax = 100.0f))
+    float MaxHealth = 100.0f;
+
+	UFUNCTION()
+    void OnTakeAnyDamage(AActor *DamagedActor, float Damage, const class UDamageType *DamageType,
+                               class AController *InstigatedBy, AActor *DamageCauser);
 
 protected:
-	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+
+private:
+    float Health = 0.0f;
+
+
 };

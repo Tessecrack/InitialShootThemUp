@@ -10,6 +10,8 @@
 
 class USpringArmComponent;
 class UCameraComponent;
+class USTUHealthComponent;
+class UTextRenderComponent;
 
 UCLASS()
 class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
@@ -29,6 +31,12 @@ class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
 
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     USpringArmComponent *SpringArmComponent;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+    USTUHealthComponent *HealthComponent;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+    UTextRenderComponent *HealthTextComponent;
 
     void MoveForward(float AxisValue);
     void MoveRight(float AxisValue);
@@ -57,6 +65,4 @@ class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
     bool IsMovingForward;
-
-
 };
