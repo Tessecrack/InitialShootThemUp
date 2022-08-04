@@ -38,11 +38,17 @@ class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     UTextRenderComponent *HealthTextComponent;
 
+    UPROPERTY(EditDefaultsOnly, Category = "Animation")
+    UAnimMontage *DeathAnimMontage; 
+
     void MoveForward(float AxisValue);
     void MoveRight(float AxisValue);
 
     void OnStartRunning();
     void OnStopRunning();
+
+    void OnDeath();
+    void OnHealthChanged(float NewHealth);
 
   public:
     // Called every frame
