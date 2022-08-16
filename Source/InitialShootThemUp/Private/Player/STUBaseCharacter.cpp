@@ -42,6 +42,8 @@ void ASTUBaseCharacter::BeginPlay()
     OnHealthChanged(HealthComponent->GetHealth());
     HealthComponent->OnDeath.AddUObject(this, &ASTUBaseCharacter::OnDeath);
     HealthComponent->OnHealthChanged.AddUObject(this, &ASTUBaseCharacter::OnHealthChanged);
+
+    LandedDelegate.AddDynamic(this, &ASTUBaseCharacter::OnGroundLanded);
 }
 
 // Called every frame
@@ -90,6 +92,20 @@ bool ASTUBaseCharacter::IsRunning() const
     return IsAccelerateRunning && IsMovingForward && !GetVelocity().IsZero();
 }
 
+void ASTUBaseCharacter::OnGroundLanded(const FHitResult &Hit)
+{
+    const auto FallVelocityZ = FMath::Abs(GetCharacterMovement()->Velocity.Z);
+    
+    if (FallVelocityZ < LandedDamageVelocity.X)
+    {
+        return;
+    }
+
+    const auto FinalDamage = FMath::GetMappedRangeValueClamped(LandedDamageVelocity, LandedDamage, FallVelocityZ);
+
+    TakeDamage(FinalDamage, FDamageEvent{}, nullptr, nullptr);
+}
+
 float ASTUBaseCharacter::GetDirection() const
 {
     if (GetVelocity().IsZero())
@@ -108,10 +124,13 @@ float ASTUBaseCharacter::GetDirection() const
 
 void ASTUBaseCharacter::OnDeath() 
 {
-    UE_LOG(LogTemp, Display, TEXT("Player %s is dead"), *GetName());
     PlayAnimMontage(DeathAnimMontage);
     GetCharacterMovement()->DisableMovement();
-    SetLifeSpan(5.0f);
+    SetLifeSpan(TimeLifeSpan);
+    if (Controller) 
+    {
+        Controller->ChangeState(NAME_Spectating);
+    }
 }
 
 void ASTUBaseCharacter::OnHealthChanged(float NewHealth)

@@ -41,28 +41,28 @@ class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
     UPROPERTY(EditDefaultsOnly, Category = "Animation")
     UAnimMontage *DeathAnimMontage; 
 
+    UPROPERTY(EditDefaultsOnly, Category = "Damage")
+    FVector2D LandedDamageVelocity = FVector2D(900.0f, 1200.0f);
+
+    UPROPERTY(EditDefaultsOnly, Category = "Damage")
+    FVector2D LandedDamage = FVector2D(10.0f, 100.0f);
+
+    UPROPERTY(EditDefaultsOnly, Category = "LifeSpan")
+    float TimeLifeSpan = 5.0f;
+
     void MoveForward(float AxisValue);
     void MoveRight(float AxisValue);
-
+    void OnHealthChanged(float NewHealth);
     void OnStartRunning();
     void OnStopRunning();
-
     void OnDeath();
-    void OnHealthChanged(float NewHealth);
+    
 
   public:
-    // Called every frame
     virtual void Tick(float DeltaTime) override;
 
-    // Called to bind functionality to input
     virtual void SetupPlayerInputComponent(class UInputComponent *PlayerInputComponent) override;
-
-    UFUNCTION(BlueprintCallable, Category = "Movement")
-    float GetDirection() const;
-
-    UFUNCTION(BlueprintCallable, Category = "Movement")
-    bool IsRunning() const;
-
+    
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
     float MovementSpeed = 100.0f;
 
@@ -71,4 +71,13 @@ class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
     bool IsMovingForward;
+
+    UFUNCTION(BlueprintCallable, Category = "Movement")
+    float GetDirection() const;
+
+    UFUNCTION(BlueprintCallable, Category = "Movement")
+    bool IsRunning() const;
+
+    UFUNCTION()
+    void OnGroundLanded(const FHitResult &Hit);
 };
