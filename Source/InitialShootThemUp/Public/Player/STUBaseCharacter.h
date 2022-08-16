@@ -12,6 +12,7 @@ class USpringArmComponent;
 class UCameraComponent;
 class USTUHealthComponent;
 class UTextRenderComponent;
+class ASTUBaseWeapon;
 
 UCLASS()
 class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
@@ -50,12 +51,17 @@ class INITIALSHOOTTHEMUP_API ASTUBaseCharacter : public ACharacter
     UPROPERTY(EditDefaultsOnly, Category = "LifeSpan")
     float TimeLifeSpan = 5.0f;
 
+    UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+    TSubclassOf<ASTUBaseWeapon> WeaponClass;
+
     void MoveForward(float AxisValue);
     void MoveRight(float AxisValue);
     void OnHealthChanged(float NewHealth);
     void OnStartRunning();
     void OnStopRunning();
     void OnDeath();
+
+    void SpawnWeapon();
     
 
   public:
