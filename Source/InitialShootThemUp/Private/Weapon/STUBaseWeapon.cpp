@@ -3,6 +3,8 @@
 
 #include "Weapon/STUBaseWeapon.h"
 
+DEFINE_LOG_CATEGORY_STATIC(LogBaseWeapon, All, All)
+
 ASTUBaseWeapon::ASTUBaseWeapon()
 {
 	PrimaryActorTick.bCanEverTick = false;
@@ -15,4 +17,9 @@ void ASTUBaseWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void ASTUBaseWeapon::Fire()
+{
+	UE_LOG(LogBaseWeapon, Warning, TEXT("FIRE"));
 }

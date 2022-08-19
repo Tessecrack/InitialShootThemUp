@@ -33,3 +33,10 @@ D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NetworkPredictio
 D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementComponent.generated.h
 D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Inc\InitialShootThemUp\STUCharacterMovementComponent.generated.h
 D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Inc\InitialShootThemUp\STUBaseCharacter.generated.h
+D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public\UI/STUGameHUD.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
+D:\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DebugTextInfo.generated.h
+D:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HUD.generated.h
+D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Intermediate\Build\Win64\UE4Editor\Inc\InitialShootThemUp\STUGameHUD.generated.h
