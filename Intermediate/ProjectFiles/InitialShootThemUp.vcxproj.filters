@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\InitialShootThemUp.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{EE138CBA-3AF0-42F9-89CF-DB220E5854C7}</UniqueIdentifier>
+      <UniqueIdentifier>{46C2BDE8-D6B4-4C0E-A38E-989284D2D6F9}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\InitialShootThemUp.Target.cs">
       <Filter>Source</Filter>
@@ -16,7 +16,7 @@
     <None Include="..\..\.gitignore" />
     <None Include="..\..\README.md" />
     <Filter Include="Config">
-      <UniqueIdentifier>{A2F85F6C-C9AE-4AF0-95E1-E4901FBE2ED1}</UniqueIdentifier>
+      <UniqueIdentifier>{04FA5DC7-4691-4045-AF7C-DAC3F38CF7E2}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -31,7 +31,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\InitialShootThemUp">
-      <UniqueIdentifier>{FC231BEA-1400-4622-B1F3-229E39ECC17A}</UniqueIdentifier>
+      <UniqueIdentifier>{CB181541-EC70-478D-81BC-432DCBA0CEBC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\InitialShootThemUp\InitialShootThemUp.Build.cs">
       <Filter>Source\InitialShootThemUp</Filter>
@@ -43,13 +43,13 @@
       <Filter>Source\InitialShootThemUp</Filter>
     </ClInclude>
     <Filter Include="Source\InitialShootThemUp\Private">
-      <UniqueIdentifier>{DCBAC687-0AC3-4D6F-B511-6203810669FD}</UniqueIdentifier>
+      <UniqueIdentifier>{75CC2D2C-CD40-44C7-A77D-9BA59D5C09FF}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InitialShootThemUp\Private\STUGameModeBase.cpp">
       <Filter>Source\InitialShootThemUp\Private</Filter>
     </ClCompile>
     <Filter Include="Source\InitialShootThemUp\Private\Components">
-      <UniqueIdentifier>{DABB9663-B291-4AC1-BDB1-1CAE89867958}</UniqueIdentifier>
+      <UniqueIdentifier>{390E7EDC-C88F-48CA-BB3B-6D9D5D7DD6D7}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InitialShootThemUp\Private\Components\STUCharacterMovementComponent.cpp">
       <Filter>Source\InitialShootThemUp\Private\Components</Filter>
@@ -61,7 +61,7 @@
       <Filter>Source\InitialShootThemUp\Private\Components</Filter>
     </ClCompile>
     <Filter Include="Source\InitialShootThemUp\Private\Dev">
-      <UniqueIdentifier>{319E1603-C049-4C0C-92B4-6639BFA90627}</UniqueIdentifier>
+      <UniqueIdentifier>{25BA2546-74B4-4DD9-8109-A0C4C871E778}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InitialShootThemUp\Private\Dev\STUDevDamageActor.cpp">
       <Filter>Source\InitialShootThemUp\Private\Dev</Filter>
@@ -73,7 +73,7 @@
       <Filter>Source\InitialShootThemUp\Private\Dev</Filter>
     </ClCompile>
     <Filter Include="Source\InitialShootThemUp\Private\Player">
-      <UniqueIdentifier>{FD19B309-8A7A-41DD-BC08-2519988C7A70}</UniqueIdentifier>
+      <UniqueIdentifier>{B2A63F7A-35DA-4FEF-8A82-933309AF6B2E}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InitialShootThemUp\Private\Player\STUBaseCharacter.cpp">
       <Filter>Source\InitialShootThemUp\Private\Player</Filter>
@@ -82,25 +82,25 @@
       <Filter>Source\InitialShootThemUp\Private\Player</Filter>
     </ClCompile>
     <Filter Include="Source\InitialShootThemUp\Private\UI">
-      <UniqueIdentifier>{3E1B9D94-B6BB-4260-BB11-98B2CFC5FBD5}</UniqueIdentifier>
+      <UniqueIdentifier>{826EAB80-5BCE-419E-BB78-3F77DC10C552}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InitialShootThemUp\Private\UI\STUGameHUD.cpp">
       <Filter>Source\InitialShootThemUp\Private\UI</Filter>
     </ClCompile>
     <Filter Include="Source\InitialShootThemUp\Private\Weapon">
-      <UniqueIdentifier>{744075E8-C21C-495D-8B1A-D0A0752910B1}</UniqueIdentifier>
+      <UniqueIdentifier>{E770EA87-2923-42E4-8FC6-3A0AC60883AB}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\InitialShootThemUp\Private\Weapon\STUBaseWeapon.cpp">
       <Filter>Source\InitialShootThemUp\Private\Weapon</Filter>
     </ClCompile>
     <Filter Include="Source\InitialShootThemUp\Public">
-      <UniqueIdentifier>{B8F1CEA8-A669-4FA5-B6DC-3E08E25F84BB}</UniqueIdentifier>
+      <UniqueIdentifier>{14B133A4-9776-46E2-AB57-E81A38425B4D}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\InitialShootThemUp\Public\STUGameModeBase.h">
       <Filter>Source\InitialShootThemUp\Public</Filter>
     </ClInclude>
     <Filter Include="Source\InitialShootThemUp\Public\Components">
-      <UniqueIdentifier>{A1ABFF69-4DAC-4B12-AA29-096415973A24}</UniqueIdentifier>
+      <UniqueIdentifier>{9CB26316-6353-4229-BE55-5F1D76859DEA}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\InitialShootThemUp\Public\Components\STUCharacterMovementComponent.h">
       <Filter>Source\InitialShootThemUp\Public\Components</Filter>
@@ -112,7 +112,7 @@
       <Filter>Source\InitialShootThemUp\Public\Components</Filter>
     </ClInclude>
     <Filter Include="Source\InitialShootThemUp\Public\Dev">
-      <UniqueIdentifier>{19DA1E64-A759-4FBE-99B5-5E09D7D76DAF}</UniqueIdentifier>
+      <UniqueIdentifier>{EDFBF4A0-095C-49D5-8A8E-12349FC33298}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\InitialShootThemUp\Public\Dev\STUDevDamageActor.h">
       <Filter>Source\InitialShootThemUp\Public\Dev</Filter>
@@ -124,7 +124,7 @@
       <Filter>Source\InitialShootThemUp\Public\Dev</Filter>
     </ClInclude>
     <Filter Include="Source\InitialShootThemUp\Public\Player">
-      <UniqueIdentifier>{06EF14EB-DAA5-4D59-852D-DD3092A49CF1}</UniqueIdentifier>
+      <UniqueIdentifier>{6DE40C82-2523-4BF4-BD19-E639F3463936}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\InitialShootThemUp\Public\Player\STUBaseCharacter.h">
       <Filter>Source\InitialShootThemUp\Public\Player</Filter>
@@ -133,13 +133,13 @@
       <Filter>Source\InitialShootThemUp\Public\Player</Filter>
     </ClInclude>
     <Filter Include="Source\InitialShootThemUp\Public\UI">
-      <UniqueIdentifier>{1DAF6201-CF0F-419C-B63A-E9FAA1D688D6}</UniqueIdentifier>
+      <UniqueIdentifier>{C877E105-5C51-4530-8E6F-6F930EBDAD31}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\InitialShootThemUp\Public\UI\STUGameHUD.h">
       <Filter>Source\InitialShootThemUp\Public\UI</Filter>
     </ClInclude>
     <Filter Include="Source\InitialShootThemUp\Public\Weapon">
-      <UniqueIdentifier>{5E42BBB8-75B3-457D-A090-7E071E486D0E}</UniqueIdentifier>
+      <UniqueIdentifier>{50AFD461-4FD9-4CEF-910E-CD702ECD4A02}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\InitialShootThemUp\Public\Weapon\STUBaseWeapon.h">
       <Filter>Source\InitialShootThemUp\Public\Weapon</Filter>
