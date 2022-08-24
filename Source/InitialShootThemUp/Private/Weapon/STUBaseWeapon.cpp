@@ -24,41 +24,19 @@ void ASTUBaseWeapon::BeginPlay()
 	
 }
 
-void ASTUBaseWeapon::Fire()
+void ASTUBaseWeapon::StartFire()
 {
-	MakeShot();
+	
+}
+
+void ASTUBaseWeapon::StopFire()
+{
+
 }
 
 void ASTUBaseWeapon::MakeShot()
 {
-    if (!GetWorld()) 
-	{
-        return;
-	}
-    FVector TraceStart, TraceEnd;
-    if (!GetTraceData(TraceStart, TraceEnd))
-    {
-        return;
-    }
-    FHitResult HitResult; 
-    MakeHit(HitResult, TraceStart, TraceEnd);
-	if (HitResult.bBlockingHit)
-    {
-        DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), HitResult.ImpactPoint, FColor::Red, false, 3.0f, 0, 3.0f);
-        DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 10.0f, 24, FColor::Red, false, 5.0f);
-
-        AActor *HitActor = HitResult.GetActor();
-        if (!HitActor)
-        {
-            return;
-        }
-        HitActor->OnTakeAnyDamage.Broadcast(HitActor, 10.0f, nullptr, nullptr, nullptr);
-        UE_LOG(LogTemp, Warning, TEXT("%s"), *(HitActor->GetName()));
-	}
-    else
-    {
-        DrawDebugLine(GetWorld(), GetMuzzleWorldLocation(), TraceEnd, FColor::Red, false, 3.0f, 0, 3.0f);
-    }
+    
 }
 
 APlayerController* ASTUBaseWeapon::GetPlayerController() const
@@ -96,9 +74,9 @@ bool ASTUBaseWeapon::GetTraceData(FVector& OutTraceStart, FVector& OutTraceEnd) 
     {
         return false;
     }
-
+     
     OutTraceStart = ViewLocation;
-    const FVector ShootDirection = ViewRotation.Vector();
+    const FVector ShootDirection = ViewRotation.Vector(), HalfRad;
     OutTraceEnd = OutTraceStart + ShootDirection * TraceMaxDistance;
     return true;
 }
@@ -108,4 +86,14 @@ void ASTUBaseWeapon::MakeHit(FHitResult& OutHitResult, const FVector& TraceStart
     FCollisionQueryParams CollisionParams;
     CollisionParams.AddIgnoredActor(GetOwner());
     GetWorld()->LineTraceSingleByChannel(OutHitResult, TraceStart, TraceEnd, ECollisionChannel::ECC_Visibility, CollisionParams);
+}
+
+void ASTUBaseWeapon::MakeDamage(const FHitResult& HitResult)
+{
+    const auto DamagedActor = HitResult.GetActor();
+    if (!DamagedActor)
+    {
+        return;
+    }
+    DamagedActor->TakeDamage(DamageAmount, FDamageEvent{}, GetPlayerController(), this);
 }

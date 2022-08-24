@@ -16,12 +16,13 @@ class INITIALSHOOTTHEMUP_API USTUWeaponComponent : public UActorComponent
 public:	
 	USTUWeaponComponent();
 
-	void Fire();
+	void StartFire();
+    void StopFire();
 
 protected:
 	virtual void BeginPlay() override;
 
-    UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
     TSubclassOf<ASTUBaseWeapon> WeaponClass;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")

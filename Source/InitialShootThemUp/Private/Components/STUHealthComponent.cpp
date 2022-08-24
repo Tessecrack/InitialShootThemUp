@@ -43,6 +43,11 @@ void USTUHealthComponent::OnTakeAnyDamage(AActor *DamagedActor, float Damage, co
 }
 void USTUHealthComponent::HealUpdate()
 {
+    if (IsDead())
+    {
+        ResetTimerAutoHeal();
+        return;
+    }
     SetHealth(Health + HealModifier);
     if (FMath::IsNearlyEqual(Health, MaxHealth) && GetWorld())
     {
