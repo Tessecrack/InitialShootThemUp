@@ -18,19 +18,30 @@ public:
 
 	void StartFire();
     void StopFire();
+    void NextWeapon();
 
 protected:
 	virtual void BeginPlay() override;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
-    TSubclassOf<ASTUBaseWeapon> WeaponClass;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+    TArray<TSubclassOf<ASTUBaseWeapon>> WeaponClasses;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
-	FName WeaponAttachPointName = "WeaponSocket";
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon", meta = (AllowPrivateAccess = "true"))
+	FName WeaponEquipSocketName = "WeaponSocket";
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon", meta = (AllowPrivateAccess = "true"))
+    FName WeaponArmorySocketName = "ArmorySocket";
 
 private: 
 	UPROPERTY()
 	ASTUBaseWeapon* CurrentWeapon = nullptr;
 
-	void SpawnWeapon();
+	UPROPERTY()
+    TArray<ASTUBaseWeapon *> Weapons;
+
+	int32 CurrentWeaponIndex = 0;
+
+	void SpawnWeapons();
+	void AttachWeaponToSocket(ASTUBaseWeapon *Weapon, USceneComponent *SceneComponent, const FName &SocketName);
+    void EquipWeapon(int32 WeaponIndex);
 };
