@@ -44,7 +44,7 @@ void USTUWeaponComponent::SpawnWeapons()
     for (auto WeaponClass : WeaponClasses)
     {
         auto Weapon = GetWorld()->SpawnActor<ASTUBaseWeapon>(WeaponClass);
-        if (!CurrentWeapon)
+        if (!Weapon)
         {
             continue;
         }
@@ -72,8 +72,7 @@ void USTUWeaponComponent::EquipWeapon(int32 WeaponIndex)
     }
     if (CurrentWeapon)
     {
-        AttachWeaponToSocket(CurrentWeapon, Character->GetMesh(), WeaponEquipSocketName);
-
+        AttachWeaponToSocket(CurrentWeapon, Character->GetMesh(), WeaponArmorySocketName);
     }
     CurrentWeapon = Weapons[WeaponIndex];
     AttachWeaponToSocket(CurrentWeapon, Character->GetMesh(), WeaponEquipSocketName);
@@ -81,6 +80,6 @@ void USTUWeaponComponent::EquipWeapon(int32 WeaponIndex)
 
 void USTUWeaponComponent::NextWeapon()
 {
-    //CurrentWeaponIndex = (CurrentWeaponIndex + 1) % Weapons.Num();
+    CurrentWeaponIndex = (CurrentWeaponIndex + 1) % Weapons.Num();
     EquipWeapon(CurrentWeaponIndex); 
 }
