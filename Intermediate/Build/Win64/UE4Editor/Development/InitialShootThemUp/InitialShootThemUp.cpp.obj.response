@@ -239,6 +239,7 @@
 /I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public\Dev
 /I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public\Weapon
 /I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public\UI
+/I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public\Animations
 /I D:\UE_Tutor_Cpp\InitialShootThemUp\InitialShootThemUp\Source\InitialShootThemUp\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
