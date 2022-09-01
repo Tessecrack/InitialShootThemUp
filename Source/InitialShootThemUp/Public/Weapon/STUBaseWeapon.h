@@ -6,6 +6,22 @@
 #include "GameFramework/Actor.h"
 #include "STUBaseWeapon.generated.h"
 
+USTRUCT(BlueprintType)
+struct FAmmoData
+{
+    GENERATED_USTRUCT_BODY()
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+    int32 Bullets;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon", meta = (EditCondition = "!Infinite"))
+    int32 Clips;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+    bool Infinite;
+};
+
+
 UCLASS()
 class INITIALSHOOTTHEMUP_API ASTUBaseWeapon : public AActor
 {
@@ -21,11 +37,14 @@ protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     USkeletalMeshComponent *WeaponMeshComponent;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
     FName MuzzleSocketName = "MuzzleSocket";
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
 	int32 TraceMaxDistance = 1500;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+    FAmmoData DefaultAmmo {15, 10, false};
 
 	virtual void BeginPlay() override;
 
@@ -38,4 +57,13 @@ protected:
     virtual bool GetTraceData(FVector &OutTraceStart, FVector &OutTraceEnd) const;
 
     void MakeHit(FHitResult &OutHitResult, const FVector &TraceStart, const FVector &TraceEnd);
+
+    void DecreaseAmmo();
+    bool IsAmmoEmpty() const;
+    bool IsClipEmpty() const;
+    void ChangeClip();
+    void LogAmmo();
+
+private:
+    FAmmoData CurrentAmmo;
 };
