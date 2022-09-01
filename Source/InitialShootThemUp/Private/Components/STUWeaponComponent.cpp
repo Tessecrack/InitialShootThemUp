@@ -1,26 +1,24 @@
 // Shoot Them Up Game. All Rights Reserved
 
-
 #include "Components/STUWeaponComponent.h"
-#include "Weapon/STUBaseWeapon.h"
-#include "GameFramework/Character.h"
 #include "Animations/STUEquipFinishedAnimNotify.h"
+#include "GameFramework/Character.h"
+#include "Weapon/STUBaseWeapon.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogWeaponComponent, All, All)
 
 USTUWeaponComponent::USTUWeaponComponent()
 {
-	PrimaryComponentTick.bCanEverTick = false;
+    PrimaryComponentTick.bCanEverTick = false;
 }
 
 void USTUWeaponComponent::BeginPlay()
 {
-	Super::BeginPlay();
+    Super::BeginPlay();
     CurrentWeaponIndex = 0;
     InitAnimations();
     SpawnWeapons();
     EquipWeapon(CurrentWeaponIndex);
-    
 }
 
 void USTUWeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
@@ -37,8 +35,10 @@ void USTUWeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 
 void USTUWeaponComponent::StartFire()
 {
-    if (!CurrentWeapon) return;
-
+    if (!CanFire())
+    {
+        return;
+    }
     CurrentWeapon->StartFire();
 }
 
@@ -71,7 +71,8 @@ void USTUWeaponComponent::SpawnWeapons()
     }
 }
 
-void USTUWeaponComponent::AttachWeaponToSocket(ASTUBaseWeapon* Weapon, USceneComponent* SceneComponent, const FName& SocketName)
+void USTUWeaponComponent::AttachWeaponToSocket(ASTUBaseWeapon *Weapon, USceneComponent *SceneComponent,
+                                               const FName &SocketName)
 {
     if (!Weapon || !SceneComponent)
         return;
@@ -93,13 +94,17 @@ void USTUWeaponComponent::EquipWeapon(int32 WeaponIndex)
     }
     CurrentWeapon = Weapons[WeaponIndex];
     AttachWeaponToSocket(CurrentWeapon, Character->GetMesh(), WeaponEquipSocketName);
+    EquipAnimInProgress = true;
     PlayAnimMontage(EquipAnimMontage);
 }
 
 void USTUWeaponComponent::NextWeapon()
 {
-    CurrentWeaponIndex = (CurrentWeaponIndex + 1) % Weapons.Num();
-    EquipWeapon(CurrentWeaponIndex); 
+    if (CanEquip())
+    {
+        CurrentWeaponIndex = (CurrentWeaponIndex + 1) % Weapons.Num();
+        EquipWeapon(CurrentWeaponIndex);
+    }
 }
 
 void USTUWeaponComponent::PlayAnimMontage(UAnimMontage *Animation)
@@ -123,7 +128,7 @@ void USTUWeaponComponent::InitAnimations()
     for (auto NotifyEvent : NotifyEvents)
     {
         auto EquipFinishedNotify = Cast<USTUEquipFinishedAnimNotify>(NotifyEvent.Notify);
-        if (EquipFinishedNotify) 
+        if (EquipFinishedNotify)
         {
             EquipFinishedNotify->OnNotified.AddUObject(this, &USTUWeaponComponent::OnEquipFinished);
             break;
@@ -134,13 +139,20 @@ void USTUWeaponComponent::InitAnimations()
 void USTUWeaponComponent::OnEquipFinished(USkeletalMeshComponent *MeshComponent)
 {
     ACharacter *Character = Cast<ACharacter>(GetOwner());
-    if (!Character)
+    if (!Character || Character->GetMesh() != MeshComponent)
     {
         return;
     }
 
-    if (Character->GetMesh() == MeshComponent)
-    {
-        UE_LOG(LogWeaponComponent, Warning, TEXT("Equiped weapon"));
-    }   
+    EquipAnimInProgress = false;
+}
+
+bool USTUWeaponComponent::CanFire() const
+{
+    return CurrentWeapon && !EquipAnimInProgress;
+}
+
+bool USTUWeaponComponent::CanEquip() const
+{
+    return !EquipAnimInProgress;
 }
