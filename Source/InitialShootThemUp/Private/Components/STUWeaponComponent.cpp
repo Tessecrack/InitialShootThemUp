@@ -57,9 +57,9 @@ void USTUWeaponComponent::SpawnWeapons()
     {
         return;
     }
-    for (auto WeaponClass : WeaponClasses)
+    for (auto OneWeaponData : WeaponData)
     {
-        auto Weapon = GetWorld()->SpawnActor<ASTUBaseWeapon>(WeaponClass);
+        auto Weapon = GetWorld()->SpawnActor<ASTUBaseWeapon>(OneWeaponData.WeaponClass);
         if (!Weapon)
         {
             continue;
@@ -82,6 +82,11 @@ void USTUWeaponComponent::AttachWeaponToSocket(ASTUBaseWeapon *Weapon, USceneCom
 
 void USTUWeaponComponent::EquipWeapon(int32 WeaponIndex)
 {
+    if (WeaponIndex < 0 || WeaponIndex >= Weapons.Num())
+    {
+        return;
+    }
+
     ACharacter *Character = Cast<ACharacter>(GetOwner());
     if (!Character)
     {
@@ -93,6 +98,12 @@ void USTUWeaponComponent::EquipWeapon(int32 WeaponIndex)
         AttachWeaponToSocket(CurrentWeapon, Character->GetMesh(), WeaponArmorySocketName);
     }
     CurrentWeapon = Weapons[WeaponIndex];
+    //CurrentReloadAnimMontage = WeaponData[WeaponIndex].ReloadAnimMontage;
+
+    const auto CurrentWeaponData = WeaponData.FindByPredicate(
+        [&](const FWeaponData &Data) { return Data.WeaponClass == CurrentWeapon->GetClass(); });
+
+    CurrentReloadAnimMontage = CurrentWeaponData ? CurrentWeaponData->ReloadAnimMontage : nullptr;
     AttachWeaponToSocket(CurrentWeapon, Character->GetMesh(), WeaponEquipSocketName);
     EquipAnimInProgress = true;
     PlayAnimMontage(EquipAnimMontage);
@@ -155,4 +166,9 @@ bool USTUWeaponComponent::CanFire() const
 bool USTUWeaponComponent::CanEquip() const
 {
     return !EquipAnimInProgress;
+}
+
+void USTUWeaponComponent::Reload() 
+{
+    PlayAnimMontage(CurrentReloadAnimMontage);
 }

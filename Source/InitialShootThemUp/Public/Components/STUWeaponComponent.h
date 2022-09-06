@@ -8,6 +8,18 @@
 
 class ASTUBaseWeapon;
 
+USTRUCT(BlueprintType)
+struct FWeaponData
+{
+    GENERATED_USTRUCT_BODY()
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+    TSubclassOf<ASTUBaseWeapon> WeaponClass;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+    UAnimMontage *ReloadAnimMontage;
+};
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class INITIALSHOOTTHEMUP_API USTUWeaponComponent : public UActorComponent
 {
@@ -19,13 +31,14 @@ public:
 	void StartFire();
     void StopFire();
     void NextWeapon();
+    void Reload();
 
-protected:
+  protected:
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
-    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
-    TArray<TSubclassOf<ASTUBaseWeapon>> WeaponClasses;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+    TArray<FWeaponData> WeaponData;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
 	FName WeaponEquipSocketName = "WeaponSocket";
@@ -42,6 +55,9 @@ private:
 
 	UPROPERTY()
     TArray<ASTUBaseWeapon *> Weapons;
+
+	UPROPERTY()
+    UAnimMontage *CurrentReloadAnimMontage = nullptr;
 
 	int32 CurrentWeaponIndex = 0;
     bool EquipAnimInProgress = false;
