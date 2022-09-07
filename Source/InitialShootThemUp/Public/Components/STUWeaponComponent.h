@@ -50,6 +50,9 @@ public:
     UAnimMontage *EquipAnimMontage;
 
 private: 
+	void OnEmptyClip();
+	void ChangeClip();
+
 	UPROPERTY()
 	ASTUBaseWeapon* CurrentWeapon = nullptr;
 

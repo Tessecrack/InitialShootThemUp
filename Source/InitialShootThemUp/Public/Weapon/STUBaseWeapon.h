@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "STUBaseWeapon.generated.h"
 
+DECLARE_MULTICAST_DELEGATE(FOnClipEmptySignature);
+
 USTRUCT(BlueprintType)
 struct FAmmoData
 {
@@ -32,13 +34,16 @@ public:
 
 	virtual void StartFire();
     virtual void StopFire();
+    void ChangeClip();
+    bool CanReload() const;
+    FOnClipEmptySignature OnClipEmpty;
 
 protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     USkeletalMeshComponent *WeaponMeshComponent;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
-    FName MuzzleSocketName = "MuzzleSocket";
+    FName MuzzleSocketName = "MuzzleFlashSocket";
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
 	int32 TraceMaxDistance = 1500;
@@ -61,7 +66,6 @@ protected:
     void DecreaseAmmo();
     bool IsAmmoEmpty() const;
     bool IsClipEmpty() const;
-    void ChangeClip();
     void LogAmmo();
 
 private:
