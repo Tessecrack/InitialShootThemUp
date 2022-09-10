@@ -3,6 +3,7 @@
 #include "Components/STUWeaponComponent.h"
 #include "Animations/STUEquipFinishedAnimNotify.h"
 #include "Animations/STUReloadFinishedAnimNotify.h"
+#include "Animations/AnimUtils.h"
 #include "GameFramework/Character.h"
 #include "Weapon/STUBaseWeapon.h"
 
@@ -137,7 +138,7 @@ void USTUWeaponComponent::PlayAnimMontage(UAnimMontage *Animation)
 
 void USTUWeaponComponent::InitAnimations()
 {
-    auto EquipFinishedNotify = FindNotifyByClass<USTUEquipFinishedAnimNotify>(EquipAnimMontage);
+    auto EquipFinishedNotify = AnimUtils::FindNotifyByClass<USTUEquipFinishedAnimNotify>(EquipAnimMontage);
     if (EquipFinishedNotify)
     {
         EquipFinishedNotify->OnNotified.AddUObject(this, &USTUWeaponComponent::OnEquipFinished);
@@ -149,7 +150,7 @@ void USTUWeaponComponent::InitAnimations()
     }
     for (auto OneWeaponData : WeaponData)
     {
-        auto ReloadFinishedNotify = FindNotifyByClass<USTUReloadFinishedAnimNotify>(OneWeaponData.ReloadAnimMontage);
+        auto ReloadFinishedNotify = AnimUtils::FindNotifyByClass<USTUReloadFinishedAnimNotify>(OneWeaponData.ReloadAnimMontage);
         if (!ReloadFinishedNotify)
         {
             UE_LOG(LogWeaponComponent, Error, TEXT("Reload anim notify is forgotten to set"));
@@ -215,26 +216,3 @@ void USTUWeaponComponent::OnReloadFinished(USkeletalMeshComponent *MeshComponent
 
     ReloadAnimInProgress = false;
 }
-
-template <typename T>
-T* USTUWeaponComponent::FindNotifyByClass(UAnimSequenceBase *Animation)
-{
-    if (!Animation)
-    {
-        return nullptr;
-    }
-
-    const auto AnimNotifiesEvents = Animation->Notifies;
-    for (auto NotifyEvent : AnimNotifiesEvents)
-    {
-        auto FinishedNotify = Cast<T>(NotifyEvent.Notify);
-        if (FinishedNotify)
-        {
-            return FinishedNotify;
-        }
-    }
-
-
-    return nullptr;
-}
-
