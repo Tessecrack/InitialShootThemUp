@@ -21,7 +21,17 @@ public:
     bool CanReload() const;
     FOnClipEmptySignature OnClipEmpty;
 
-protected:
+    FWeaponUIData GetUIData() const
+    {
+        return UIData;
+    }
+
+    FAmmoData GetAmmoData() const
+    {
+        return CurrentAmmo;
+    }
+
+  protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     USkeletalMeshComponent *WeaponMeshComponent;
 
@@ -33,6 +43,9 @@ protected:
 
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
     FAmmoData DefaultAmmo {15, 10, false};
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
+    FWeaponUIData UIData;
 
 	virtual void BeginPlay() override;
 

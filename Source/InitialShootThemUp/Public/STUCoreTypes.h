@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "STUCoreTypes.generated.h"
 
 //health
@@ -36,4 +37,16 @@ struct FWeaponData
 
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
     UAnimMontage *ReloadAnimMontage;
+};
+
+USTRUCT(BlueprintType)
+struct FWeaponUIData 
+{
+    GENERATED_USTRUCT_BODY()
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
+    UTexture2D *MainIcon;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
+    UTexture2D *CrossHairIcon;
 };

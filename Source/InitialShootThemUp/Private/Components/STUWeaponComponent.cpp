@@ -216,3 +216,23 @@ void USTUWeaponComponent::OnReloadFinished(USkeletalMeshComponent *MeshComponent
 
     ReloadAnimInProgress = false;
 }
+
+bool USTUWeaponComponent::GetWeaponUIData(FWeaponUIData &WeaponUIData) const
+{
+    if (CurrentWeapon)
+    {
+        WeaponUIData = CurrentWeapon->GetUIData();
+        return true;
+    }
+    return false;
+}
+
+bool USTUWeaponComponent::GetWeaponAmmoData(FAmmoData &AmmoData) const
+{
+    if (CurrentWeapon)
+    {
+        AmmoData = CurrentWeapon->GetAmmoData();
+        return true;
+    }
+    return false;
+}
