@@ -25,7 +25,8 @@ public class InitialShootThemUp : ModuleRules
 			"InitialShootThemUp/Public/Dev",
 			"InitialShootThemUp/Public/Weapon",
 			"InitialShootThemUp/Public/UI",
-			"InitialShootThemUp/Public/Animations"
+			"InitialShootThemUp/Public/Animations",
+			"InitialShootThemUp/Public/Pickups"
 		});
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
