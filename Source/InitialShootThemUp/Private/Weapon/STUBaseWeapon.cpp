@@ -94,18 +94,15 @@ void ASTUBaseWeapon::DecreaseAmmo()
 {
     if (CurrentAmmo.Bullets == 0)
     {
-        UE_LOG(LogTemp, Warning, TEXT("NO BULLETS"));
         return;
     }
 
     CurrentAmmo.Bullets--;
-    LogAmmo();
 
     if (IsClipEmpty() && !IsAmmoEmpty())
     {
         StopFire();
         OnClipEmpty.Broadcast();
-        //ChangeClip();
     }
 }
 

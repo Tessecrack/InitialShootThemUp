@@ -199,4 +199,9 @@
       <Filter>Source\InitialShootThemUp\Public\Weapon</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\InitialShootThemUp\Public\STUUtils.h">
+      <Filter>Source\InitialShootThemUp\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>
