@@ -38,7 +38,9 @@ public:
     void OnTakeAnyDamage(AActor *DamagedActor, float Damage, const class UDamageType *DamageType,
                                class AController *InstigatedBy, AActor *DamageCauser);
 
-protected:
+	bool TryToAddHealth(float HealthPoint);
+
+  protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Health", meta = (ClampMin = 0.0f, ClampMax = 100.0f))

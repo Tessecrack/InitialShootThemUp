@@ -10,7 +10,7 @@ DECLARE_MULTICAST_DELEGATE_OneParam(FOnHealthChanged, float)
 //weapon
 class ASTUBaseWeapon;
 
-DECLARE_MULTICAST_DELEGATE(FOnClipEmptySignature);
+DECLARE_MULTICAST_DELEGATE_OneParam(FOnClipEmptySignature, ASTUBaseWeapon*);
 
 USTRUCT(BlueprintType)
 struct FAmmoData

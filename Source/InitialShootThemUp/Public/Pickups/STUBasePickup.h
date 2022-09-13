@@ -14,8 +14,8 @@ class INITIALSHOOTTHEMUP_API ASTUBasePickup : public AActor
 	GENERATED_BODY()
 	
 public:	
-	
 	ASTUBasePickup();
+	virtual void Tick(float DeltaTime) override;
 
 protected:
 
@@ -23,14 +23,18 @@ protected:
 
 	virtual void NotifyActorBeginOverlap(AActor *OtherActor) override;
 
+	virtual bool GivePickupTo(APawn *PlayerPawn);
+
 	UPROPERTY(VisibleAnywhere, Category = "Pickup")
     USphereComponent *CollisionComponent;
 
-	
-
+	UPROPERTY(VisibleAnywhere, Category = "Pickup")
+    float RespawnTime = 5.0f;
 	 
+private: 
+	float RotationYaw = 0.0f;
+	void PickupWasTaken();
+	void Respawn();
 
-public:	
-	virtual void Tick(float DeltaTime) override;
-
+	void GenerateRotationYaw();
 };
